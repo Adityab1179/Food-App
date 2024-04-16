@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap');
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 7%;
+    width: 100%;
+    height: 80px;
+    font-size: 1.25rem;
+    border: 2px solid black;
+}
+
+.applogo {
+    height: 100%;
+    border-radius: 20px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+    list-style-type: none;
+}
+
+.nav-links li {
+    display: flex;
+    gap: 10px;
+}
+
+
+
+.section-2 {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.Search-box input {
+    height: 50px;
+    font-size: 20px;
+}
+.Search-box button{
+    font-size: 20px;
+    height: 50px;
+    margin-right: 15px;
+}
+.restaurants-section {
+    width: 85%;
+    padding-left: 15%;
+    padding-top: 20px;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.restaurant-card {
+    font-family: "Figtree", sans-serif;
+    border-radius: 20px;
+    overflow: hidden;
+    width: 15rem;
+    min-height: 12rem;
+    transition: transform .5s;
+}
+
+.restaurant-info {
+    font-size: 12px;
+    padding-left: 10px;
+}
+
+.restaurant-info h3,
+.restaurant-info h2 {
+    font-weight: 500;
+}
+
+.restaurant-img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+
+}
+
+.restaurant-card:hover {
+    transform: scale(.90)
+}
+
+.rating-cost {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+.rating-cost img {
+    width: 12%;
+}
+
+.cost-of-two {
+    padding-left: 10px
+}
