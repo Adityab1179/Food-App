@@ -8,8 +8,7 @@ const RestaurantCards = (props) => {
     avgRating,
     lastMileTravelString,
     cloudinaryImageId,
-  } = resdata?.info;
-  console.log(resdata);
+  } = resdata?.info
   return (
     <div className="restaurant-card">
       <img src={CDN_URL + cloudinaryImageId} className="restaurant-img" />

@@ -13,24 +13,34 @@ const Header = () => {
       <Applogo />
       <ul className="nav-links">
         <li>
-          <FontAwesomeIcon icon={faSearch} />
+          <a href="#">
+          <FontAwesomeIcon icon={faSearch} className="icon"/>
           Search
+          </a>
         </li>
         <li>
-          <FontAwesomeIcon icon={faPercent} />
+        <a href="#">
+          <FontAwesomeIcon icon={faPercent} className="icon"/>
           Offers
+          </a>
         </li>
         <li>
-          <FontAwesomeIcon icon={faHandHoldingHand} />
+        <a href="#">
+          <FontAwesomeIcon icon={faHandHoldingHand} className="icon"/>
           Help
+          </a>
         </li>
         <li>
-          <FontAwesomeIcon icon={faUser} />
+        <a href="#">
+          <FontAwesomeIcon icon={faUser} className="icon"/>
           Sign in
+          </a>
         </li>
         <li>
-          <FontAwesomeIcon icon={faShoppingCart} />
+        <a href="#">
+          <FontAwesomeIcon icon={faShoppingCart} className="icon"/>
           Cart
+          </a>
         </li>
       </ul>
     </nav>
