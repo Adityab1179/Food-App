@@ -4,22 +4,17 @@ import Shimmer from "./Shimmer";
 
 const Restaurants = () => {
   const [restdata, setRestdata] = useState([]);
+  const [filteredrest, setFilteredRest] = useState([]);
+  const [searchbox, setSearchbox] = useState('');
 
   const Ratingfilter = () => {
-    setRestdata([]);
-    <Shimmer />;
-    setTimeout(() => {
-      const filteredData = restdata.filter((res) => res.info.avgRating > 4.1);
-      setRestdata(filteredData);
-    }, 400);
+    const filteredData = restdata.filter((res) => res.info.avgRating > 4.1);
+    setFilteredRest(filteredData);
   };
+
   const Vegfilter = () => {
-    setRestdata([]);
-    <Shimmer />;
-    setTimeout(() => {
-      const filteredData = restdata.filter((res) => res.info.veg === true);
-      setRestdata(filteredData);
-    }, 400);
+    const filteredData = restdata.filter((res) => res.info.veg === true);
+    setFilteredRest(filteredData);
   };
 
   useEffect(() => {
@@ -32,18 +27,32 @@ const Restaurants = () => {
     );
 
     const json = await data.json();
-    console.log(json);
-    setRestdata(
-      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-    );
+    const restaurants = json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants || [];
+    setRestdata(restaurants);
+    setFilteredRest(restaurants);
   };
-  if (restdata.length === 0) {
-    return <Shimmer />;
-  }
+
+  const searchHandler = () => {
+    const filteredData = restdata.filter((res) => 
+      res.info.name.toLowerCase().includes(searchbox.toLowerCase())
+    );
+    setFilteredRest(filteredData);
+  };
+
   return (
     <div className="section-2">
       <div className="res-card-heading">
         <h1>Top Restaurant Chain in Saharanpur</h1>
+        <div className="search-box">
+          <input 
+            type="text" 
+            value={searchbox} 
+            onChange={(e) => setSearchbox(e.target.value)} 
+          />
+          <button onClick={searchHandler}>
+            Search
+          </button>
+        </div>
         <div className="heading-btn">
           <button className="filter-btn" onClick={Ratingfilter}>
             Top rated restaurants
@@ -53,11 +62,15 @@ const Restaurants = () => {
           </button>
         </div>
       </div>
-      <div className="restaurants-section">
-        {restdata.map((restaurant) => (
-          <RestaurantCards key={restaurant.info.id} resdata={restaurant} />
-        ))}
-      </div>
+      {filteredrest.length === 0 ? (
+        <Shimmer />
+      ) : (
+        <div className="restaurants-section">
+          {filteredrest.map((restaurant) => (
+            <RestaurantCards key={restaurant.info.id} resdata={restaurant} />
+          ))}
+        </div>
+      )}
     </div>
   );
 };

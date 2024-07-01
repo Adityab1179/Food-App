@@ -30,6 +30,7 @@ nav {
 
 .nav-links {
   display: flex;
+  align-items: center;
   gap: 20px;
   list-style-type: none;
 }
@@ -44,6 +45,11 @@ nav {
 
 .icon {
   padding-right: 10px;
+}
+.loginbtn{
+  width: 4rem;
+  height: 2rem;
+
 }
 .bannersection {
   width: 80%;
