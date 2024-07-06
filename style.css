@@ -23,11 +23,6 @@ nav {
   border: 2px solid black;
 }
 
-.applogo {
-  height: 100%;
-  border-radius: 20px;
-}
-
 .nav-links {
   display: flex;
   align-items: center;

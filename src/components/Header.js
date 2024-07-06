@@ -7,50 +7,47 @@ import {
   faShoppingCart,
 } from "../../node_modules/@fortawesome/free-solid-svg-icons";
 import Applogo from "../components/Applogo";
+import { Link } from "react-router-dom";
 import { useState } from "react";
 const Header = () => {
-    const [loginbtn, setloginbtn] = useState("login");
-    const toggleLogin = () => {
-      setloginbtn((prevLoginBtn) =>
-        prevLoginBtn === "login" ? "logout" : "login"
-      );
-    };
+  const [loginbtn, setloginbtn] = useState("login");
+  const toggleLogin = () => {
+    setloginbtn((prevLoginBtn) =>
+      prevLoginBtn === "login" ? "logout" : "login"
+    );
+  };
 
   return (
     <nav className="nav">
       <Applogo />
       <ul className="nav-links">
-        <li>
-          <a href="#">
-            <FontAwesomeIcon icon={faSearch} className="icon" />
-            Search
-          </a>
+      <li>
+          <Link to={"/"}>
+            <FontAwesomeIcon icon={faPercent} className="icon" />
+            Home
+          </Link>
         </li>
         <li>
-          <a href="#">
+          <Link to={"/offers"}>
             <FontAwesomeIcon icon={faPercent} className="icon" />
             Offers
-          </a>
+          </Link>
         </li>
         <li>
-          <a href="#">
+          <Link to={"/help"}>
             <FontAwesomeIcon icon={faHandHoldingHand} className="icon" />
-            Help
-          </a>
+          Help
+          </Link>
         </li>
         <li>
-          <a href="#">
-            <FontAwesomeIcon icon={faUser} className="icon" />
-            Sign in
-          </a>
-        </li>
-        <li>
-          <a href="#">
+          <Link to={"/cart"}>
             <FontAwesomeIcon icon={faShoppingCart} className="icon" />
             Cart
-          </a>
+          </Link>
         </li>
-        <button className="loginbtn" onClick={toggleLogin}>{loginbtn}</button>
+        <button className="loginbtn" onClick={toggleLogin}>
+          {loginbtn}
+        </button>
       </ul>
     </nav>
   );

@@ -1,18 +1,50 @@
 import React from "react";
-import ReactDOM from "react-dom";
-import Header from "./components/Header"
-import Restaurants from "./components/Restaurants"
-import BannerSection from "./components/Bannersection";
+import ReactDOM from "react-dom/client";
+import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
+import Header from "./components/Header";
+import Restaurants from "./components/Restaurants";
+import Offers from "./components/routes/Offer";
+import Error from "./components/routes/Error";
+import Help from "./components/routes/Help";
+import Cart from "./components/routes/cart";
+import RestaurantInfoSection from "./components/routes/RestaurantInfoSection";
 
+const AppLayout = () => (
+  <div>
+    <Header />
+    <Outlet />
+  </div>
+);
 
-const AppLayout = () => {
-  return (
-    <div>
-      <Header />
-      <BannerSection/>
-      <Restaurants/>
-    </div>
-  );
-};
+const appRouter = createBrowserRouter([
+  {
+    path: "/",
+    element: <AppLayout />,
+    errorElement: <Error />,
+    children: [
+      {
+        path: "/",
+        element: <Restaurants />,
+      },
+      {
+        path: "offers",
+        element: <Offers />,
+      },
+      {
+        path: "help",
+        element: <Help />,
+      },
+      {
+        path: "cart",
+        element: <Cart />,
+      },
+      {
+        path: "restaurant", // No dynamic parameter
+        element: <RestaurantInfoSection />,
+      },
+    ],
+  },
+]);
 
-ReactDOM.render(<AppLayout />, document.querySelector(".root"));
+const root = ReactDOM.createRoot(document.querySelector(".root"));
+root.render(<RouterProvider router={appRouter} />);

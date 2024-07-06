@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import RestaurantCards from "./RestaurantCards";
 import Shimmer from "./Shimmer";
+import BannerSection from "./Bannersection";
 
 const Restaurants = () => {
   const [restdata, setRestdata] = useState([]);
@@ -41,6 +42,7 @@ const Restaurants = () => {
 
   return (
     <div className="section-2">
+      <BannerSection/>
       <div className="res-card-heading">
         <h1>Top Restaurant Chain in Saharanpur</h1>
         <div className="search-box">
