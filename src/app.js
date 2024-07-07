@@ -6,7 +6,7 @@ import Restaurants from "./components/Restaurants";
 import Offers from "./components/routes/Offer";
 import Error from "./components/routes/Error";
 import Help from "./components/routes/Help";
-import Cart from "./components/routes/cart";
+import Cart from "./components/routes/Cart";
 import RestaurantInfoSection from "./components/routes/RestaurantInfoSection";
 
 const AppLayout = () => (
