@@ -5,7 +5,7 @@ const RestInfo=(props)=>{
     return(
         <div className="RestInfo">
             <h1>{name}</h1>
-          <div>
+          <div className="RestRating">
           <p>{avgRating}</p>
           <p>({totalRatingsString})</p>
           <p>{costForTwoMessage}</p>
